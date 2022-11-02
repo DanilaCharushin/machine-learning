@@ -1,0 +1,7 @@
+black
+isort
+numpy
+scipy
+matplotlib
+tensorflow
+keras

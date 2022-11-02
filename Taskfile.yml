@@ -1,0 +1,46 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  init:
+    desc: Fastest way to start developing
+    cmds:
+      - echo "Vrum-vrum..."
+      - task: attach-hooks
+      - task: venv
+      - task: install
+      - echo "You are perfect!"
+
+  attach-hooks:
+    desc: Attaches git hooks
+    cmds:
+      - cp .git-hooks/pre-commit.sh .git/hooks/pre-commit
+      - chmod 777 .git/hooks/pre-commit
+
+  venv:
+    desc: Create virtual environment "venv" locally
+    cmds:
+      - python3 -m venv venv
+
+  install:
+    desc: Install dependencies.
+    cmds:
+      - venv/bin/pip install -r requirements.txt
+
+  format:
+    desc: Format code
+    cmds:
+      - cd labs && ../venv/bin/python -m black .
+      - cd labs && ../venv/bin/python -m isort .
+
+  lab1:
+    desc: Run lab1
+    cmds:
+      - venv/bin/python labs/lab1/tests.py
+      - venv/bin/python labs/lab1/task10.py
+
+  lab2:
+    desc: Run lab2
+    cmds:
+      - venv/bin/python labs/lab2/task5.py
