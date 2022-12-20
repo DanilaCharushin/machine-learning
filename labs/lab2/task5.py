@@ -10,8 +10,8 @@ warnings.filterwarnings("ignore", category=matplotlib.cbook.mplDeprecation)
 
 SIZE = 1000
 VALIDATION_PERCENT = 0.1
-EPOCHS = 20
-BATCH_SIZE = 64
+EPOCHS = 100
+BATCH_SIZE = 32
 
 
 def genData(size=SIZE):
@@ -65,8 +65,8 @@ def drawResults(data, label, prediction):
 # создание последовательной модели
 model = models.Sequential()
 # добавление слоев
-model.add(layers.Dense(16, activation="relu", input_shape=(2,)))
-model.add(layers.Dense(16, activation="relu"))
+model.add(layers.Dense(100, activation="relu", input_shape=(2,), use_bias=True))
+model.add(layers.Dense(100, activation="relu", use_bias=False))
 model.add(layers.Dense(1, activation="sigmoid"))
 
 model.compile(loss="binary_crossentropy", metrics=["accuracy"])

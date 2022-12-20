@@ -44,3 +44,9 @@ tasks:
     desc: Run lab2
     cmds:
       - venv/bin/python labs/lab2/task5.py
+
+  lab3:
+    desc: Run lab3
+    cmds:
+      - cd labs/lab3 && ../../venv/bin/python tests.py
+      - cd labs/lab3 && ../../venv/bin/python task10.py
